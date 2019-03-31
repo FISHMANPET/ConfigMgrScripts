@@ -1,7 +1,7 @@
-if ((get-windowsfeature fs-data-deduplication -ErrorAction Stop).InstallState -ne "Installed") {
+if ((Get-WindowsFeature fs-data-deduplication -ErrorAction Stop).InstallState -ne "Installed") {
     $result = Install-WindowsFeature fs-data-deduplication -ErrorAction Stop
     if ($result.RestartNeeded -eq "Yes") {
-        write-host "Reboot needed, reboot and rerun this script"
+        Write-Host "Reboot needed, reboot and rerun this script"
         return
     }
 }
